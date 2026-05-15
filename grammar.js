@@ -1,9 +1,8 @@
 /**
- * @file Python grammar for tree-sitter
- * @author Max Brunsfeld <maxbrunsfeld@gmail.com>
+ * @file Vyper grammar for tree-sitter
+ * @author lsankar4033
  * @license MIT
- * @see {@link https://docs.python.org/2/reference/grammar.html|Python 2 grammar}
- * @see {@link https://docs.python.org/3/reference/grammar.html|Python 3 grammar}
+ * forked from https://github.com/tree-sitter/tree-sitter-python so there's likely python cruft here still
  */
 
 
