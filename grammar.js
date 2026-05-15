@@ -149,6 +149,8 @@ module.exports = grammar({
       $.nonlocal_statement,
       $.exec_statement,
       $.type_alias_statement,
+      $.implements_def,
+      $.exports_decl,
     ),
 
     import_statement: $ => seq(
@@ -576,6 +578,18 @@ module.exports = grammar({
 
     flag_member: $ => seq(
       field('name', $.identifier),
+    ),
+
+    implements_def: $ => seq(
+      'implements',
+      ':',
+      field('name', $.identifier),
+    ),
+
+    exports_decl: $ => seq(
+      'exports',
+      ':',
+      commaSep1($.expression),
     ),
 
     class_definition: $ => seq(

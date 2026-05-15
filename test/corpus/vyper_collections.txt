@@ -1,0 +1,22 @@
+================================================================================
+ Struct Definition
+================================================================================
+
+struct Point:
+    x: uint256
+    y: uint256
+
+--------------------------------------------------------------------------------
+
+(module
+  (struct_definition
+    name: (identifier)
+    body: (struct_body
+      (struct_member
+        name: (identifier)
+        (type
+          (identifier)))
+      (struct_member
+        name: (identifier)
+        (type
+          (identifier))))))

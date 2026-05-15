@@ -1,0 +1,17 @@
+================================================================================
+ Exports Declaration
+================================================================================
+
+exports: foo, bar.baz, (x, y)
+
+--------------------------------------------------------------------------------
+
+(module
+  (exports_decl
+    (identifier)
+    (attribute
+      object: (identifier)
+      attribute: (identifier))
+    (tuple
+      (identifier)
+      (identifier))))

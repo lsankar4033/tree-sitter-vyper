@@ -86,6 +86,10 @@
         "named": true
       },
       {
+        "type": "exports_decl",
+        "named": true
+      },
+      {
         "type": "expression_statement",
         "named": true
       },
@@ -95,6 +99,10 @@
       },
       {
         "type": "global_statement",
+        "named": true
+      },
+      {
+        "type": "implements_def",
         "named": true
       },
       {
@@ -1744,6 +1752,21 @@
     }
   },
   {
+    "type": "exports_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "expression_list",
     "named": true,
     "fields": {},
@@ -2170,6 +2193,22 @@
         "types": [
           {
             "type": "block",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "implements_def",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -3999,6 +4038,10 @@
     "named": false
   },
   {
+    "type": "exports",
+    "named": false
+  },
+  {
     "type": "false",
     "named": true
   },
@@ -4032,6 +4075,10 @@
   },
   {
     "type": "if",
+    "named": false
+  },
+  {
+    "type": "implements",
     "named": false
   },
   {
