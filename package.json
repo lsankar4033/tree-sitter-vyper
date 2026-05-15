@@ -1,19 +1,10 @@
 {
-  "name": "tree-sitter-python",
+  "name": "tree-sitter-vyper",
   "version": "0.25.0",
-  "description": "Python grammar for tree-sitter",
-  "repository": "https://github.com/tree-sitter/tree-sitter-python",
+  "description": "Vyper grammar for tree-sitter",
+  "repository": "https://github.com/lsankar4033/tree-sitter-vyper",
   "license": "MIT",
-  "author": {
-    "name": "Max Brunsfeld",
-    "email": "maxbrunsfeld@gmail.com"
-  },
-  "contributors": [
-    {
-      "name": "Amaan Qureshi",
-      "email": "amaanq12@gmail.com"
-    }
-  ],
+  "author": "lsankar4033"
   "main": "bindings/node",
   "types": "bindings/node",
   "keywords": [
