@@ -1,0 +1,51 @@
+================================================================================
+ Struct Definition
+================================================================================
+
+struct Point:
+    x: uint256
+    y: uint256
+
+--------------------------------------------------------------------------------
+
+(module
+  (struct_definition
+    name: (identifier)
+    body: (struct_body
+      (struct_member
+        name: (identifier)
+        (type
+          (identifier)))
+      (struct_member
+        name: (identifier)
+        (type
+          (identifier))))))
+
+================================================================================
+ Interface Definition
+================================================================================
+
+interface IVault:
+    def deposit() -> uint256: view
+    def withdraw(amount: uint256): nonpayable
+
+--------------------------------------------------------------------------------
+
+(module
+  (interface_definition
+    name: (identifier)
+    body: (interface_body
+      (interface_sig
+        name: (identifier)
+        parameters: (parameters)
+        return_type: (type
+          (identifier))
+        mutability: (identifier))
+      (interface_sig
+        name: (identifier)
+        parameters: (parameters
+          (typed_parameter
+            (identifier)
+            type: (type
+              (identifier))))
+        mutability: (identifier)))))

@@ -1,0 +1,43 @@
+================================================================================
+ Enum Definition
+================================================================================
+
+enum Status:
+    Pending
+    Active
+    Completed
+
+--------------------------------------------------------------------------------
+
+(module
+  (enum_definition
+    name: (identifier)
+    body: (enum_body
+      (enum_member
+        name: (identifier))
+      (enum_member
+        name: (identifier))
+      (enum_member
+        name: (identifier)))))
+
+================================================================================
+ Flag Definition
+================================================================================
+
+flag Permissions:
+    Read
+    Write
+    Execute
+
+--------------------------------------------------------------------------------
+
+(module
+  (flag_definition
+    name: (identifier)
+    body: (flag_body
+      (flag_member
+        name: (identifier))
+      (flag_member
+        name: (identifier))
+      (flag_member
+        name: (identifier)))))

@@ -292,6 +292,10 @@ module.exports = grammar({
       $.decorated_definition,
       $.match_statement,
       $.event_definition,
+      $.struct_definition,
+      $.interface_definition,
+      $.enum_definition,
+      $.flag_definition,
     ),
 
     if_statement: $ => seq(
@@ -493,6 +497,85 @@ module.exports = grammar({
         seq('indexed', '(', $.type, ')'),
         $.type,
       ),
+    ),
+
+    struct_definition: $ => seq(
+      'struct',
+      field('name', $.identifier),
+      ':',
+      field('body', $.struct_body),
+    ),
+
+    struct_body: $ => seq(
+      $._newline,
+      $._indent,
+      repeat1(seq($.struct_member, $._newline)),
+      $._dedent,
+    ),
+
+    struct_member: $ => seq(
+      field('name', $.identifier),
+      ':',
+      $.type,
+    ),
+
+    interface_definition: $ => seq(
+      'interface',
+      field('name', $.identifier),
+      ':',
+      field('body', $.interface_body),
+    ),
+
+    interface_body: $ => seq(
+      $._newline,
+      $._indent,
+      repeat1(seq($.interface_sig, $._newline)),
+      $._dedent,
+    ),
+
+    interface_sig: $ => seq(
+      'def',
+      field('name', $.identifier),
+      field('parameters', $.parameters),
+      optional(seq('->', field('return_type', $.type))),
+      ':',
+      field('mutability', $.identifier),
+    ),
+
+    enum_definition: $ => seq(
+      'enum',
+      field('name', $.identifier),
+      ':',
+      field('body', $.enum_body),
+    ),
+
+    enum_body: $ => seq(
+      $._newline,
+      $._indent,
+      repeat1(seq($.enum_member, $._newline)),
+      $._dedent,
+    ),
+
+    enum_member: $ => seq(
+      field('name', $.identifier),
+    ),
+
+    flag_definition: $ => seq(
+      'flag',
+      field('name', $.identifier),
+      ':',
+      field('body', $.flag_body),
+    ),
+
+    flag_body: $ => seq(
+      $._newline,
+      $._indent,
+      repeat1(seq($.flag_member, $._newline)),
+      $._dedent,
+    ),
+
+    flag_member: $ => seq(
+      field('name', $.identifier),
     ),
 
     class_definition: $ => seq(
