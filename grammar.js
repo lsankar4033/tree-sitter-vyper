@@ -54,6 +54,7 @@ module.exports = grammar({
     [$.print_statement, $.primary_expression],
     [$.type_alias_statement, $.primary_expression],
     [$.match_statement, $.primary_expression],
+    [$.external_call, $.primary_expression],
   ],
 
   supertypes: $ => [
@@ -150,6 +151,8 @@ module.exports = grammar({
       $.type_alias_statement,
       $.implements_def,
       $.exports_decl,
+      $.initializes_def,
+      $.uses_def,
     ),
 
     import_statement: $ => seq(
@@ -591,6 +594,18 @@ module.exports = grammar({
       commaSep1($.expression),
     ),
 
+    initializes_def: $ => seq(
+      'initializes',
+      ':',
+      field('name', $.identifier),
+    ),
+
+    uses_def: $ => seq(
+      'uses',
+      ':',
+      field('name', $.identifier),
+    ),
+
     class_definition: $ => seq(
       'class',
       field('name', $.identifier),
@@ -867,6 +882,7 @@ module.exports = grammar({
       $.attribute,
       $.subscript,
       $.call,
+      $.external_call,
       $.list,
       $.list_comprehension,
       $.dictionary,
@@ -1055,6 +1071,11 @@ module.exports = grammar({
         $.argument_list,
       )),
     )),
+
+    external_call: $ => seq(
+      field('modifier', choice('extcall', 'staticcall')),
+      $.call,
+    ),
 
     typed_parameter: $ => prec(PREC.typed_parameter, seq(
       choice(

@@ -114,6 +114,10 @@
         "named": true
       },
       {
+        "type": "initializes_def",
+        "named": true
+      },
+      {
         "type": "log_statement",
         "named": true
       },
@@ -139,6 +143,10 @@
       },
       {
         "type": "type_alias_statement",
+        "named": true
+      },
+      {
+        "type": "uses_def",
         "named": true
       }
     ]
@@ -313,6 +321,10 @@
       },
       {
         "type": "ellipsis",
+        "named": true
+      },
+      {
+        "type": "external_call",
         "named": true
       },
       {
@@ -1782,6 +1794,36 @@
     }
   },
   {
+    "type": "external_call",
+    "named": true,
+    "fields": {
+      "modifier": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "extcall",
+            "named": false
+          },
+          {
+            "type": "staticcall",
+            "named": false
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "call",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "finally_clause",
     "named": true,
     "fields": {},
@@ -2278,6 +2320,22 @@
           },
           {
             "type": "dotted_name",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "initializes_def",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
             "named": true
           }
         ]
@@ -3656,6 +3714,22 @@
     }
   },
   {
+    "type": "uses_def",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "while_statement",
     "named": true,
     "fields": {
@@ -4042,6 +4116,10 @@
     "named": false
   },
   {
+    "type": "extcall",
+    "named": false
+  },
+  {
     "type": "false",
     "named": true
   },
@@ -4091,6 +4169,10 @@
   },
   {
     "type": "indexed",
+    "named": false
+  },
+  {
+    "type": "initializes",
     "named": false
   },
   {
@@ -4155,6 +4237,10 @@
     "named": false
   },
   {
+    "type": "staticcall",
+    "named": false
+  },
+  {
     "type": "string_end",
     "named": true
   },
@@ -4181,6 +4267,10 @@
   {
     "type": "type_conversion",
     "named": true
+  },
+  {
+    "type": "uses",
+    "named": false
   },
   {
     "type": "while",

@@ -1,41 +1,49 @@
 ================================================================================
- Exports Declaration
+ Extcall Function Call
 ================================================================================
 
-exports: foo, bar.baz, (x, y)
+extcall owner.transfer(to, value)
 
 --------------------------------------------------------------------------------
 
 (module
-  (exports_decl
-    (identifier)
-    (attribute
-      object: (identifier)
-      attribute: (identifier))
-    (tuple
-      (identifier)
-      (identifier))))
+  (external_call
+    (call
+      function: (attribute
+        object: (identifier)
+        attribute: (identifier))
+      arguments: (argument_list
+        (identifier)
+        (identifier)))))
 
 ================================================================================
- Initializes Declaration
+ Staticcall Function Call
 ================================================================================
 
-initializes: Ownable
+staticcall target.get_value()
 
 --------------------------------------------------------------------------------
 
 (module
-  (initializes_def
-    name: (identifier)))
+  (external_call
+    (call
+      function: (attribute
+        object: (identifier)
+        attribute: (identifier))
+      arguments: (argument_list))))
 
 ================================================================================
- Uses Declaration
+ Extcall on Attribute
 ================================================================================
 
-uses: Ownable
+extcall proxy_impl.implementation()
 
 --------------------------------------------------------------------------------
 
 (module
-  (uses_def
-    name: (identifier)))
+  (external_call
+    (call
+      function: (attribute
+        object: (identifier)
+        attribute: (identifier))
+      arguments: (argument_list))))

@@ -147,6 +147,14 @@
         {
           "type": "SYMBOL",
           "name": "exports_decl"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "initializes_def"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "uses_def"
         }
       ]
     },
@@ -2457,6 +2465,48 @@
         }
       ]
     },
+    "initializes_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "initializes"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
+    "uses_def": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "uses"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "FIELD",
+          "name": "name",
+          "content": {
+            "type": "SYMBOL",
+            "name": "identifier"
+          }
+        }
+      ]
+    },
     "class_definition": {
       "type": "SEQ",
       "members": [
@@ -3980,6 +4030,10 @@
         },
         {
           "type": "SYMBOL",
+          "name": "external_call"
+        },
+        {
+          "type": "SYMBOL",
           "name": "list"
         },
         {
@@ -5300,6 +5354,32 @@
           }
         ]
       }
+    },
+    "external_call": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "FIELD",
+          "name": "modifier",
+          "content": {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "STRING",
+                "value": "extcall"
+              },
+              {
+                "type": "STRING",
+                "value": "staticcall"
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "call"
+        }
+      ]
     },
     "typed_parameter": {
       "type": "PREC",
@@ -6822,6 +6902,10 @@
     ],
     [
       "match_statement",
+      "primary_expression"
+    ],
+    [
+      "external_call",
       "primary_expression"
     ]
   ],
