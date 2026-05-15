@@ -4,7 +4,7 @@
   "description": "Vyper grammar for tree-sitter",
   "repository": "https://github.com/lsankar4033/tree-sitter-vyper",
   "license": "MIT",
-  "author": "lsankar4033"
+  "author": "lsankar4033",
   "main": "bindings/node",
   "types": "bindings/node",
   "keywords": [

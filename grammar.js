@@ -8,7 +8,7 @@
 
 
 /// <reference types="tree-sitter-cli/dsl" />
-// @ts-check
+// @ts-nocheck
 
 const PREC = {
   // this resolves a conflict between the usage of ':' in a lambda vs in a
@@ -141,6 +141,7 @@ module.exports = grammar({
       $.return_statement,
       $.delete_statement,
       $.raise_statement,
+      $.log_statement,
       $.pass_statement,
       $.break_statement,
       $.continue_statement,
@@ -269,6 +270,11 @@ module.exports = grammar({
       optional(seq('from', field('cause', $.expression))),
     ),
 
+    log_statement: $ => seq(
+      'log',
+      $._expressions,
+    ),
+
     pass_statement: _ => prec.left('pass'),
     break_statement: _ => prec.left('break'),
     continue_statement: _ => prec.left('continue'),
@@ -285,6 +291,7 @@ module.exports = grammar({
       $.class_definition,
       $.decorated_definition,
       $.match_statement,
+      $.event_definition,
     ),
 
     if_statement: $ => seq(
@@ -461,6 +468,32 @@ module.exports = grammar({
       '=',
       field('right', $.type),
     )),
+
+    event_definition: $ => seq(
+      'event',
+      field('name', $.identifier),
+      ':',
+      field('body', $.event_body),
+    ),
+
+    event_body: $ => seq(
+      $._newline,
+      $._indent,
+      choice(
+        repeat1(seq($.event_member, $._newline)),
+        $.pass_statement,
+      ),
+      $._dedent,
+    ),
+
+    event_member: $ => seq(
+      field('name', $.identifier),
+      ':',
+      choice(
+        seq('indexed', '(', $.type, ')'),
+        $.type,
+      ),
+    ),
 
     class_definition: $ => seq(
       'class',

@@ -12,6 +12,10 @@
         "named": true
       },
       {
+        "type": "event_definition",
+        "named": true
+      },
+      {
         "type": "for_statement",
         "named": true
       },
@@ -83,6 +87,10 @@
       },
       {
         "type": "import_statement",
+        "named": true
+      },
+      {
+        "type": "log_statement",
         "named": true
       },
       {
@@ -1526,6 +1534,77 @@
     }
   },
   {
+    "type": "event_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "event_member",
+          "named": true
+        },
+        {
+          "type": "pass_statement",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "event_definition",
+    "named": true,
+    "fields": {
+      "body": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "event_body",
+            "named": true
+          }
+        ]
+      },
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "event_member",
+    "named": true,
+    "fields": {
+      "name": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      }
+    },
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "except_clause",
     "named": true,
     "fields": {
@@ -2357,6 +2436,25 @@
         },
         {
           "type": "subscript",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "log_statement",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "expression",
+          "named": true
+        },
+        {
+          "type": "expression_list",
           "named": true
         }
       ]
@@ -3601,6 +3699,10 @@
     "named": true
   },
   {
+    "type": "event",
+    "named": false
+  },
+  {
     "type": "except",
     "named": false
   },
@@ -3649,6 +3751,10 @@
     "named": false
   },
   {
+    "type": "indexed",
+    "named": false
+  },
+  {
     "type": "integer",
     "named": true
   },
@@ -3664,6 +3770,10 @@
     "type": "line_continuation",
     "named": true,
     "extra": true
+  },
+  {
+    "type": "log",
+    "named": false
   },
   {
     "type": "match",

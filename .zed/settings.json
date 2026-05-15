@@ -1,0 +1,26 @@
+{
+  "languages": {
+    "TypeScript": {
+      "language_server": {
+        "enabled": false,
+      },
+    },
+    "JavaScript": {
+      "formatter": {
+        "external": {
+          "command": "none",
+        },
+      },
+    },
+    "JavaScript React": {
+      "language_server": {
+        "enabled": false,
+      },
+      "formatter": {
+        "external": {
+          "command": "none",
+        },
+      },
+    },
+  },
+}

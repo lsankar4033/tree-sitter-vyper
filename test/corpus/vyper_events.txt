@@ -1,0 +1,98 @@
+================================================================================
+ Event Definition with Members
+================================================================================
+
+event Transfer:
+    sender: indexed(address)
+    receiver: indexed(address)
+    value: uint256
+
+--------------------------------------------------------------------------------
+
+(module
+  (event_definition
+    name: (identifier)
+    body: (event_body
+      (event_member
+        name: (identifier)
+        (type
+          (identifier)))
+      (event_member
+        name: (identifier)
+        (type
+          (identifier)))
+      (event_member
+        name: (identifier)
+        (type
+          (identifier))))))
+
+================================================================================
+ Event Definition with Pass
+================================================================================
+
+event Empty:
+    pass
+
+--------------------------------------------------------------------------------
+
+(module
+  (event_definition
+    name: (identifier)
+    body: (event_body
+      (pass_statement))))
+
+================================================================================
+ Log Statement with Args
+================================================================================
+
+event Transfer:
+    sender: indexed(address)
+    receiver: indexed(address)
+    value: uint256
+
+@external
+def transfer(to: address, value: uint256):
+    log Transfer(msg.sender, to, value)
+
+--------------------------------------------------------------------------------
+
+(module
+  (event_definition
+    name: (identifier)
+    body: (event_body
+      (event_member
+        name: (identifier)
+        (type
+          (identifier)))
+      (event_member
+        name: (identifier)
+        (type
+          (identifier)))
+      (event_member
+        name: (identifier)
+        (type
+          (identifier)))))
+  (decorated_definition
+    (decorator
+      (identifier))
+    definition: (function_definition
+      name: (identifier)
+      parameters: (parameters
+        (typed_parameter
+          (identifier)
+          type: (type
+            (identifier)))
+        (typed_parameter
+          (identifier)
+          type: (type
+            (identifier))))
+      body: (block
+        (log_statement
+          (call
+            function: (identifier)
+            arguments: (argument_list
+              (attribute
+                object: (identifier)
+                attribute: (identifier))
+              (identifier)
+              (identifier))))))))
